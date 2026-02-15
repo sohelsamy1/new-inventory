@@ -25,7 +25,7 @@
 </div>
 
 <div>
-   
+    @yield('content')
 </div>
 <script>
 

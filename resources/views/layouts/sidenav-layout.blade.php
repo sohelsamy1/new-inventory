@@ -13,6 +13,7 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
     <link href="{{asset('css/toastify.min.css')}}" rel="stylesheet" />
 
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
     <link href="{{asset('css/jquery.dataTables.min.css')}}" rel="stylesheet" />
@@ -25,6 +26,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.3/axios.min.js"></script>
     <script src="{{asset('js/config.js')}}"></script>
     <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
+
+
 
 
 </head>
@@ -111,8 +114,9 @@
 
 
 <div id="contentRef" class="content">
-
+    @yield('content')
 </div>
+
 
 
 <script>

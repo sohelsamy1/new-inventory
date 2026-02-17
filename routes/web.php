@@ -11,5 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'homePage']);
 Route::get('/dashboard', [DashboardController::class, 'dashboardPage']);
 Route::get('/categoryPage', [CategoryController::class, 'categoryPage']);
-Route::get('/userRegistration', [UserController::class, 'userRegistration']);
-Route::get('/userLogin', [UserController::class, 'userLogin']);
+Route::get('/userRegistration', [UserController::class, 'userRegistrationPage']);
+Route::get('/userLogin', [UserController::class, 'userLoginPage']);
+Route::get('/resetPassword', [UserController::class, 'resetPasswordPage']);
+

@@ -18,7 +18,11 @@ class UserController extends Controller
         return view('pages.auth.reset-pass-page');
     }
 
-        public function sendOtpPage(){
+    public function sendOtpPage(){
         return view('pages.auth.send-otp-page');
+    }
+
+      public function verifyOtpPage(){
+        return view('pages.auth.verify-otp-page');
     }
 }

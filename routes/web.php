@@ -15,3 +15,4 @@ Route::get('/userRegistration', [UserController::class, 'userRegistrationPage'])
 Route::get('/userLogin', [UserController::class, 'userLoginPage']);
 Route::get('/resetPassword', [UserController::class, 'resetPasswordPage']);
 Route::get('/sendOtp', [UserController::class, 'sendOtpPage']);
+Route::get('/verifyOtp', [UserController::class, 'verifyOtpPage']);

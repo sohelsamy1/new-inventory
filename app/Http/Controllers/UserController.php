@@ -17,4 +17,8 @@ class UserController extends Controller
      public function resetPasswordPage(){
         return view('pages.auth.reset-pass-page');
     }
+
+        public function sendOtpPage(){
+        return view('pages.auth.send-otp-page');
+    }
 }

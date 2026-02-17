@@ -12,3 +12,4 @@ Route::get('/', [HomeController::class, 'homePage']);
 Route::get('/dashboard', [DashboardController::class, 'dashboardPage']);
 Route::get('/categoryPage', [CategoryController::class, 'categoryPage']);
 Route::get('/userRegistration', [UserController::class, 'userRegistration']);
+Route::get('/userLogin', [UserController::class, 'userLogin']);

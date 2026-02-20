@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Helper\JWTToken;
+use App\Mail\OTPMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -126,6 +128,45 @@ class UserController extends Controller
     {
         return redirect('/userLogin')
         ->withCookie(cookie('token', null, -1));
+    }
+
+    // Send OTP
+    public function sendOTP(Request $request)
+    {
+        try {
+            // Step 1: Validate email field
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email|exists:users,email',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 'fail',
+                    'message' => 'Validation Error',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            // Step 2: Generate OTP and send mail
+            $otp = rand(1000, 9999);
+            $email = $request->email;
+
+            Mail::to($email)->send(new OTPMail($otp));
+
+            User::where('email', $email)->update(['otp' => $otp]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'OTP sent successfully'
+            ], 200);
+
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong',
+                'error' => app()->environment('production') ? 'Server Error' : $e->getMessage()
+            ], 500);
+        }
     }
 
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\JWTToken;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -72,5 +74,50 @@ class UserController extends Controller
                 'error' => $e->getMessage()
             ], 500);
         }
+    }
+
+     // Login
+    public function userLogin(Request $request)
+    {
+         try {
+            // Step 1: Validate input
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email',
+                'password' => 'required|min:3'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 'fail',
+                    'message' => 'Validation Error',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            // Step 2: Check user existence
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                // Step 3: Generate token
+                $token = JWTToken::createToken($user->email, $user->id);
+
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'User Login successful'
+                ], 200)->cookie('token', $token, 60 * 24); // 1 day
+            } else {
+                return response()->json([
+                    'status' => 'fail',
+                    'message' => 'Invalid email or password'
+                ], 401);
+            }
+
+            } catch (\Throwable $e) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $e->getMessage(),
+                    'error' => app()->environment('production') ? 'Server Error' : $e->getMessage()
+                ], 500);
+            }
     }
 }

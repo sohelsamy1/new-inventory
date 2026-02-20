@@ -120,4 +120,12 @@ class UserController extends Controller
                 ], 500);
             }
     }
+    
+    // Logout
+    public function logout()
+    {
+        return redirect('/userLogin')
+        ->withCookie(cookie('token', null, -1));
+    }
+
 }

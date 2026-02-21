@@ -19,10 +19,13 @@ Route::get('/sendOtp', [UserController::class, 'sendOtpPage']);
 Route::get('/verifyOtp', [UserController::class, 'verifyOtpPage']);
 Route::get('/userProfile', [UserController::class, 'profilePage']);
 
-// API /
+// API
 Route::post('/user-registration', [UserController::class, 'userRegistration']);
 Route::post('/user-login', [UserController::class, 'userLogin']);
 Route::post('/user-logout', [UserController::class, 'logout']);
 Route::post('/send-otp', [UserController::class, 'sendOTP']);
 Route::post('/verify-otp', [UserController::class, 'verifyOTP']);
 Route::post('/reset-password', [UserController::class, 'resetPassword'])->middleware(TokenVerificationMiddleware::class);
+
+// Category API
+Route::get("/category-list",[CategoryController::class,'CategoryList'])->middleware([TokenVerificationMiddleware::class]);

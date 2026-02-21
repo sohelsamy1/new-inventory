@@ -169,4 +169,54 @@ class UserController extends Controller
         }
     }
 
+    // Verify OTP
+    public function verifyOTP(Request $request)
+    {
+        try {
+            // Step 1: Validate input
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email|exists:users,email',
+                'otp' => 'required|digits:4'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 'fail',
+                    'message' => 'Validation Error',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            // Step 2: Find user with correct OTP
+            $user = User::where([
+                'email' => $request->email,
+                'otp' => $request->otp
+            ])->first();
+
+            if ($user) {
+                // OTP matched, reset OTP and generate token
+                User::where('email', $request->email)->update(['otp' => 0]);
+
+                $token = JWTToken::createTokenForResetPassword($request->email);
+
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'OTP verified successfully',
+                ], 200)->cookie('token', $token, 60 * 5); // 24 hours
+            } else {
+                return response()->json([
+                    'status' => 'fail',
+                    'message' => 'Invalid OTP or email'
+                ], 401);
+            }
+
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Something went wrong',
+                'error' => app()->environment('production') ? 'Server Error' : $e->getMessage()
+            ], 500);
+        }
+    }
+
 }

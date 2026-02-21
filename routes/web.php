@@ -19,6 +19,8 @@ Route::get('/verifyOtp', [UserController::class, 'verifyOtpPage']);
 Route::get('/userProfile', [UserController::class, 'profilePage']);
 
 // API /
-Route::post('/registration', [UserController::class, 'userRegistration']);
-Route::post('/login', [UserController::class, 'userLogin']);
+Route::post('/user-registration', [UserController::class, 'userRegistration']);
+Route::post('/user-login', [UserController::class, 'userLogin']);
+Route::post('/user-logout', [UserController::class, 'logout']);
 Route::post('/send-otp', [UserController::class, 'sendOTP']);
+Route::post('/verify-otp', [UserController::class, 'verifyOTP']);

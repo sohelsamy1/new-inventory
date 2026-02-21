@@ -219,4 +219,42 @@ class UserController extends Controller
         }
     }
 
+
+    // Reset Password
+    public function resetPassword(Request $request)
+    {
+        try {
+            // Validate request
+            $validator = Validator::make($request->all(), [
+                'password' => 'required|min:8|confirmed'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 'fail',
+                    'message' => 'Validation Error',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $email = $request->header('email');
+            $password = $request->password;
+
+            User::where('email', $email)->update([
+                'password' => Hash::make($password)
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Password reset successfully'
+            ], 200);
+
+        } catch (\Throwable $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unable to reset password',
+                'error' => app()->environment('production') ? 'Server Error' : $e->getMessage()
+            ], 500);
+        }
+    }
 }

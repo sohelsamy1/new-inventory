@@ -19,7 +19,7 @@ Route::get('/resetPassword', [UserController::class, 'resetPasswordPage']);
 Route::get('/sendOtp', [UserController::class, 'sendOtpPage']);
 Route::get('/verifyOtp', [UserController::class, 'verifyOtpPage']);
 Route::get('/userProfile', [UserController::class, 'profilePage']);
-Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->name('CustomerPage')->middleware([TokenVerificationMiddleware::class]);
+Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->name('CustomerPage');
 
 // API
 Route::post('/user-registration', [UserController::class, 'userRegistration']);

@@ -38,3 +38,4 @@ Route::post("/update-category",[CategoryController::class,'CategoryUpdate'])->mi
 
 // Customer API
 Route::post("/create-customer",[CustomerController::class,'CustomerCreate'])->middleware([TokenVerificationMiddleware::class]);
+Route::get("/list-customer",[CustomerController::class,'CustomerList'])->middleware([TokenVerificationMiddleware::class]);

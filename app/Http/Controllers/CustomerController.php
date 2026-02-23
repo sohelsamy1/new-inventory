@@ -26,9 +26,15 @@ class CustomerController extends Controller
         return Customer::where('user_id',$user_id)->get();
     }
 
-     public function CustomerDelete(Request $request){
+    public function CustomerDelete(Request $request){
         $customer_id=$request->input('id');
         $user_id=$request->header('user_id');
         return Customer::where('id',$customer_id)->where('user_id',$user_id)->delete();
+    }
+
+    public function CustomerByID(Request $request){
+        $customer_id=$request->input('id');
+        $user_id=$request->header('user_id');
+        return Customer::where('id',$customer_id)->where('user_id',$user_id)->first();
     }
 }

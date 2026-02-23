@@ -47,3 +47,4 @@ Route::post("/update-customer",[CustomerController::class,'CustomerUpdate'])->mi
 
 // Product API
 Route::post("/create-product",[ProductController::class,'CreateProduct'])->middleware([TokenVerificationMiddleware::class]);
+Route::get("/list-product",[ProductController::class,'ProductList'])->middleware([TokenVerificationMiddleware::class]);

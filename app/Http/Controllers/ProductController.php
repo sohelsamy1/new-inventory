@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-     public function ProductPage(){
+    public function ProductPage(){
         return view('pages.dashboard.product-page');
     }
 
-     public function CreateProduct(Request $request)
+    public function CreateProduct(Request $request)
     {
         $user_id=$request->header('user_id');
 
@@ -35,5 +35,11 @@ class ProductController extends Controller
             'category_id'=>$request->input('category_id'),
             'user_id'=>$user_id
         ]);
+    }
+
+    public function ProductList(Request $request)
+    {
+        $user_id=$request->header('user_id');
+        return Product::where('user_id',$user_id)->get();
     }
 }

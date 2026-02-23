@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
+
     public function ProductPage(){
         return view('pages.dashboard.product-page');
     }
+
 
     public function CreateProduct(Request $request)
     {
@@ -37,16 +40,29 @@ class ProductController extends Controller
         ]);
     }
 
+
     public function ProductList(Request $request)
     {
         $user_id=$request->header('user_id');
         return Product::where('user_id',$user_id)->get();
     }
 
+
     public function ProductByID(Request $request)
     {
         $user_id=$request->header('user_id');
         $product_id=$request->input('id');
         return Product::where('id',$product_id)->where('user_id',$user_id)->first();
+    }
+
+
+    public function DeleteProduct(Request $request)
+    {
+        $user_id=$request->header('user_id');
+        $product_id=$request->input('id');
+        $filePath=$request->input('file_path');
+        File::delete($filePath);
+        return Product::where('id',$product_id)->where('user_id',$user_id)->delete();
+
     }
 }

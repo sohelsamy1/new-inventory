@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ Route::get('/sendOtp', [UserController::class, 'sendOtpPage']);
 Route::get('/verifyOtp', [UserController::class, 'verifyOtpPage']);
 Route::get('/userProfile', [UserController::class, 'profilePage']);
 Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->name('CustomerPage');
+Route::get('/productPage',[ProductController::class,'ProductPage']);
 
 // API
 Route::post('/user-registration', [UserController::class, 'userRegistration']);

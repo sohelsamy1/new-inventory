@@ -42,4 +42,11 @@ class ProductController extends Controller
         $user_id=$request->header('user_id');
         return Product::where('user_id',$user_id)->get();
     }
+
+    public function ProductByID(Request $request)
+    {
+        $user_id=$request->header('user_id');
+        $product_id=$request->input('id');
+        return Product::where('id',$product_id)->where('user_id',$user_id)->first();
+    }
 }

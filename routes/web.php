@@ -25,6 +25,7 @@ Route::get('/userProfile', [UserController::class, 'profilePage']);
 Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->name('CustomerPage');
 Route::get('/productPage',[ProductController::class,'ProductPage']);
 Route::get('/invoicePage',[InvoiceController::class,'InvoicePage']);
+Route::get('/salePage',[InvoiceController::class,'SalePage']);
 
 // API
 Route::post('/user-registration', [UserController::class, 'userRegistration']);

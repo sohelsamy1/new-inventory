@@ -257,4 +257,16 @@ class UserController extends Controller
             ], 500);
         }
     }
+
+
+    //Get user profile
+    public function userProfile(Request $request){
+        $email = $request->header('email');
+        $user = User::where('email', $email)->first();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'User Profile',
+            'data' => $user
+        ], 200);
+    }
 }

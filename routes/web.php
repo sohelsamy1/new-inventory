@@ -27,13 +27,16 @@ Route::get('/productPage',[ProductController::class,'ProductPage']);
 Route::get('/invoicePage',[InvoiceController::class,'InvoicePage']);
 Route::get('/salePage',[InvoiceController::class,'SalePage']);
 
-// API
+
+// Backend
+// User Routes
 Route::post('/user-registration', [UserController::class, 'userRegistration']);
 Route::post('/user-login', [UserController::class, 'userLogin']);
 Route::post('/user-logout', [UserController::class, 'logout']);
 Route::post('/send-otp', [UserController::class, 'sendOTP']);
 Route::post('/verify-otp', [UserController::class, 'verifyOTP']);
 Route::post('/reset-password', [UserController::class, 'resetPassword'])->middleware(TokenVerificationMiddleware::class);
+Route::get('/user-profile', [UserController::class, 'userProfile'])->middleware(TokenVerificationMiddleware::class);
 
 // Category API
 Route::post("/create-category",[CategoryController::class,'CategoryCreate'])->middleware([TokenVerificationMiddleware::class]);
@@ -61,3 +64,4 @@ Route::post("/invoice-create",[InvoiceController::class,'invoiceCreate'])->middl
 Route::get("/invoice-select",[InvoiceController::class,'invoiceSelect'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/invoice-details",[InvoiceController::class,'InvoiceDetails'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/invoice-delete",[InvoiceController::class,'invoiceDelete'])->middleware([TokenVerificationMiddleware::class]);
+

@@ -39,6 +39,9 @@ Route::post('/reset-password', [UserController::class, 'resetPassword'])->middle
 Route::get('/user-profile', [UserController::class, 'userProfile'])->middleware(TokenVerificationMiddleware::class);
 Route::post('/user-update', [UserController::class, 'updateUserProfile'])->middleware(TokenVerificationMiddleware::class);
 
+//Dashboard Summary
+Route::get("/summary",[DashboardController::class,'summary'])->middleware([TokenVerificationMiddleware::class]);
+
 // Category API
 Route::post("/create-category",[CategoryController::class,'CategoryCreate'])->middleware([TokenVerificationMiddleware::class]);
 Route::get("/list-category",[CategoryController::class,'CategoryList'])->middleware([TokenVerificationMiddleware::class]);

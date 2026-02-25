@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helper\JWTToken;
 use App\Mail\OTPMail;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -259,7 +260,7 @@ class UserController extends Controller
     }
 
 
-    //Get user profile
+     //Get user profile
     public function userProfile(Request $request){
         $email = $request->header('email');
         $user = User::where('email', $email)->first();
@@ -268,5 +269,34 @@ class UserController extends Controller
             'message' => 'User Profile',
             'data' => $user
         ], 200);
+    }
+
+
+     // User profile update
+    public function updateUserProfile(Request $request){
+       try{
+            $email = $request->header('email');
+            $first_name = $request->first_name;
+            $last_name = $request->last_name;
+            $mobile = $request->mobile;
+            $password = $request->password;
+
+            User::where('email', $email)->update([
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'mobile' => $mobile,
+                'password' => $password
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'User Profile updated successfully'
+            ], 200);
+       }catch(Exception $e){
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Unable to update user profile'
+            ], 200);
+       }
     }
 }

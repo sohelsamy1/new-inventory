@@ -37,6 +37,7 @@ Route::post('/send-otp', [UserController::class, 'sendOTP']);
 Route::post('/verify-otp', [UserController::class, 'verifyOTP']);
 Route::post('/reset-password', [UserController::class, 'resetPassword'])->middleware(TokenVerificationMiddleware::class);
 Route::get('/user-profile', [UserController::class, 'userProfile'])->middleware(TokenVerificationMiddleware::class);
+Route::post('/user-update', [UserController::class, 'updateUserProfile'])->middleware(TokenVerificationMiddleware::class);
 
 // Category API
 Route::post("/create-category",[CategoryController::class,'CategoryCreate'])->middleware([TokenVerificationMiddleware::class]);

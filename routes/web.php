@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenVerificationMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +27,7 @@ Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->name('Cu
 Route::get('/productPage',[ProductController::class,'ProductPage']);
 Route::get('/invoicePage',[InvoiceController::class,'InvoicePage']);
 Route::get('/salePage',[InvoiceController::class,'SalePage']);
-
-
-// Backend
+Route::get('/reportPage',[ReportController::class,'ReportPage']);
 // User Routes
 Route::post('/user-registration', [UserController::class, 'userRegistration']);
 Route::post('/user-login', [UserController::class, 'userLogin']);
@@ -42,9 +41,9 @@ Route::post('/user-update', [UserController::class, 'updateUserProfile'])->middl
 //Dashboard Summary
 Route::get("/summary",[DashboardController::class,'summary'])->middleware([TokenVerificationMiddleware::class]);
 
+
 // Category API
 Route::post("/create-category",[CategoryController::class,'CategoryCreate'])->middleware([TokenVerificationMiddleware::class]);
-Route::get("/list-category",[CategoryController::class,'CategoryList'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/delete-category",[CategoryController::class,'CategoryDelete'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/category-by-id",[CategoryController::class,'CategoryByID'])->middleware([TokenVerificationMiddleware::class]);
 Route::post("/update-category",[CategoryController::class,'CategoryUpdate'])->middleware([TokenVerificationMiddleware::class]);

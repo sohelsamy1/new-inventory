@@ -28,6 +28,7 @@ Route::get('/productPage',[ProductController::class,'ProductPage']);
 Route::get('/invoicePage',[InvoiceController::class,'InvoicePage']);
 Route::get('/salePage',[InvoiceController::class,'SalePage']);
 Route::get('/reportPage',[ReportController::class,'ReportPage']);
+
 // User Routes
 Route::post('/user-registration', [UserController::class, 'userRegistration']);
 Route::post('/user-login', [UserController::class, 'userLogin']);
@@ -41,6 +42,8 @@ Route::post('/user-update', [UserController::class, 'updateUserProfile'])->middl
 //Dashboard Summary
 Route::get("/summary",[DashboardController::class,'summary'])->middleware([TokenVerificationMiddleware::class]);
 
+// Report Generation
+Route::get("/sales-report/{FormDate}/{ToDate}",[ReportController::class,'salesReport'])->middleware([TokenVerificationMiddleware::class]);
 
 // Category API
 Route::post("/create-category",[CategoryController::class,'CategoryCreate'])->middleware([TokenVerificationMiddleware::class]);

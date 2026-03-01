@@ -47,15 +47,15 @@
             <span class="icon-nav m-0 h5" onclick="MenuBarClickHandler()">
                 <img class="nav-logo-sm mx-2"  src="{{asset('images/menu.svg')}}" alt="logo"/>
             </span>
-            <img class="nav-logo  mx-2"  src="{{asset('images/logo.png')}}" alt="logo"/>
+            <img class="nav-logo  mx-2"  src="{{asset('images/logo.webp')}}" alt="logo"/>
         </a>
 
         <div class="float-right h-auto d-flex">
             <div class="user-dropdown">
-                <img class="icon-nav-img" src="{{asset('images/user.webp')}}" alt=""/>
+                <img class="icon-nav-img" src="{{asset('images/sohelsamy.webp')}}" alt=""/>
                 <div class="user-dropdown-content ">
                     <div class="mt-4 text-center">
-                        <img class="icon-nav-img" src="{{asset('images/user.webp')}}" alt=""/>
+                        <img class="icon-nav-img" src="{{asset('images/sohelsamy.webp')}}" alt=""/>
                         <h6>User Name</h6>
                         <hr class="user-dropdown-divider  p-0"/>
                     </div>

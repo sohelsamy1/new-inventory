@@ -41,7 +41,7 @@
             </div>
 
             <div class="modal-footer">
-                <button id="update-modal-close" class="btn bg-gradient-primary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                <button id="update-modal-close" class="btn bg-gradient-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
                 <button onclick="update()" id="update-btn" class="btn bg-gradient-success" >Update</button>
             </div>
 

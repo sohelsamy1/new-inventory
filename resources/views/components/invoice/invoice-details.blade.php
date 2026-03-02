@@ -52,7 +52,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn bg-gradient-primary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn bg-gradient-warning" data-bs-dismiss="modal">Close</button>
                 <button onclick="PrintPage()" class="btn bg-gradient-success">Print</button>
             </div>
         </div>

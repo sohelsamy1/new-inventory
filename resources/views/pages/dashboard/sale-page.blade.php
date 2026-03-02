@@ -45,7 +45,7 @@
                            <span class="text-xxs">Discount(%):</span>
                            <input onkeydown="return false" value="0" min="0" type="number" step="0.25" onchange="DiscountChange()" class="form-control w-40 " id="discountP"/>
                            <p>
-                              <button onclick="createInvoice()" class="btn  my-3 bg-gradient-primary w-40">Confirm</button>
+                              <button onclick="createInvoice()" class="btn  my-3 bg-gradient-warning w-40">Confirm</button>
                            </p>
                        </div>
                         <div class="col-12 p-2">

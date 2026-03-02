@@ -12,7 +12,6 @@ use App\Http\Middleware\TokenVerificationMiddleware;
 use Illuminate\Support\Facades\Route;
 
 
-
 // Frontend Routes
 Route::get('/', [HomeController::class, 'homePage']);
 Route::get('/dashboard', [DashboardController::class, 'dashboardPage']);

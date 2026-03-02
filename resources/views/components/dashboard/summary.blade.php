@@ -14,8 +14,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon icon-shape bg-gradient-warning shadow border-radius-md position-relative">
+                                <i class="fas fa-store"></i>
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon icon-shape bg-gradient-warning shadow border-radius-md position-relative">
+                                <i class="fas fa-th-large"></i>
                             </div>
                         </div>
                     </div>
@@ -58,8 +58,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon icon-shape bg-gradient-warning shadow border-radius-md position-relative">
+                                <i class="fas fa-users"></i>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 animated fadeIn p-2">
-            <div class="card card-plain h-100  bg-white">
+            <div class="card card-plain h-100 bg-white">
                 <div class="p-3">
                     <div class="row">
                         <div class="col-9 col-lg-8 col-md-8 col-sm-9">
@@ -80,8 +80,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon invoice-icon icon-shape bg-gradient-warning shadow border-radius-md position-relative">
+                                <i class="fas fa-file-invoice"></i>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
             </div>
         </div>
 
-
+        <!-- Total Sale -->
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 animated fadeIn p-2">
             <div class="card card-plain h-100 bg-white">
                 <div class="p-3">
@@ -103,8 +103,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon dollar-icon icon-shape bg-gradient-warning    shadow border-radius-md position-relative">
+                                <i class="fas fa-file-invoice-dollar"></i>
                             </div>
                         </div>
                     </div>
@@ -112,9 +112,9 @@
             </div>
         </div>
 
-
+        <!-- Vat Collection -->
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 animated fadeIn p-2">
-            <div class="card card-plain h-100  bg-white">
+            <div class="card card-plain h-100 bg-white">
                 <div class="p-3">
                     <div class="row">
                         <div class="col-9 col-lg-8 col-md-8 col-sm-9">
@@ -126,8 +126,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon icon-shape bg-gradient-warning shadow border-radius-md position-relative">
+                                <i class="fas fa-calculator"></i>
                             </div>
                         </div>
                     </div>
@@ -135,9 +135,9 @@
             </div>
         </div>
 
-
+        <!-- Total Collection -->
         <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 animated fadeIn p-2">
-            <div class="card card-plain h-100  bg-white">
+            <div class="card card-plain h-100 bg-white">
                 <div class="p-3">
                     <div class="row">
                         <div class="col-9 col-lg-8 col-md-8 col-sm-9">
@@ -149,8 +149,8 @@
                             </div>
                         </div>
                         <div class="col-3 col-lg-4 col-md-4 col-sm-3 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow float-end border-radius-md">
-                                <img class="w-100 " src="{{asset('images/icon.svg')}}"/>
+                            <div class="dashboard-icon icon-shape bg-gradient-warning shadow border-radius-md position-relative">
+                                <i class="fas fa-money-check-alt"></i>
                             </div>
                         </div>
                     </div>
@@ -162,9 +162,7 @@
 </div>
 
 
-
 <script>
-
 
     getList();
     async function getList() {
@@ -197,5 +195,6 @@
 }
 
 </script>
+
 
 

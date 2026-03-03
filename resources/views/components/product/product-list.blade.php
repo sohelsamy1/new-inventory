@@ -17,7 +17,7 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>Unit</th>
+                    <th>Stock</th>
                     <th>Action</th>
                 </tr>
                 </thead>
